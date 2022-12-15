@@ -4,6 +4,6 @@ from memcache_app import config
 webapp = Flask(__name__)
 
 ''' Default Type is LRU and default size is 10 MB'''
-config.emcache_obj = memcache.LRUMemCache(10)
+config.memcache_obj = memcache.LRUMemCache(10)
 
 from memcache_app import memcache_routes

@@ -1,4 +1,4 @@
-from memcache_app import config, webapp, memcache, constants, startup
+from memcache_app import config, webapp, memcache, constants
 from flask import request
 import json, datetime
 global new_cache

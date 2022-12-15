@@ -5,12 +5,11 @@ import boto3, time, json
 # log_client = boto3.client('logs', region_name="us-east-1", aws_access_key_id=aws_config['aws_access_key_id'], aws_secret_access_key=aws_config['aws_secret_access_key'])
 log_client = boto3.client('logs', region_name="us-east-1")
 
-def thread_stats():
-    while True:
-        statistics = get_aggregate_statistics()
-        message = json.dumps(statistics)
-        create_log(message)
-        time.sleep(5)
+def continuous_report():
+    statistics = get_aggregate_statistics()
+    message = json.dumps(statistics)
+    create_log(message)
+    time.sleep(5)
 
 
 def create_log(message):
@@ -72,3 +71,5 @@ def get_aggregate_statistics():
     }
         
     return statistics_cur
+
+continuous_report()

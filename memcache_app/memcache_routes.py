@@ -76,6 +76,8 @@ def refresh_configuration():
     """
     print("In the Route")
     cache_properties = request.get_json(force=True)
+    print("Cache properties is")
+    print(cache_properties)
     if not cache_properties == None:
         max_capacity = cache_properties['max_capacity']
         replacement_policy = cache_properties['replacement_policy']

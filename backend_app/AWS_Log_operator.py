@@ -72,4 +72,5 @@ def get_aggregate_statistics():
         
     return statistics_cur
 
-continuous_report()
+while True:
+    continuous_report()

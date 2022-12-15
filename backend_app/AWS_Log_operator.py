@@ -64,11 +64,11 @@ def get_aggregate_statistics():
     statistics['miss_rate'] += response_dict['miss_rate']
         
     statistics_cur = {
-        'key_count': statistics['key_count']/statistics['active_count'],
-        'size_count': statistics['size_count']/statistics['active_count'],
-        'request_count': statistics['request_count']/statistics['active_count'],
-        'miss_rate': statistics['miss_rate']/statistics['active_count'],
-        'hit_rate': statistics['hit_rate']/statistics['active_count']
+        'key_count': statistics['key_count'],
+        'size_count': statistics['size_count'],
+        'request_count': statistics['request_count'],
+        'miss_rate': statistics['miss_rate'],
+        'hit_rate': statistics['hit_rate']
     }
         
     return statistics_cur

@@ -54,7 +54,7 @@ def get_aggregate_statistics():
         'miss_rate': 0,
         'hit_rate': 0
     }
-    address = 'http://127.0.0.1:5000/get_statistics'
+    address = 'http://0.0.0.0:5000/get_statistics'
     response = requests.get(address)
     print(response.content.decode('utf-8'))
     response_dict = json.loads(response.content.decode('utf-8'))

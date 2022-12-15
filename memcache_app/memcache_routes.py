@@ -89,13 +89,22 @@ def refresh_configuration():
 @webapp.route('/get_statistics', methods = ['GET'])
 def get_statistics():
 
-    statistics = {
-        'size_count': config.memcache_obj.current_size, 
-        'request_count': config.memcache_obj.request_count,
-        'miss_rate': config.memcache_obj.miss / config.memcache_obj.request_count,
-        'key_count': config.memcache_obj.currsize,
-        'hit_rate': config.memcache_obj.hit / config.memcache_obj.request_count
-    }
+    if config.memcache_obj.request_count != 0:
+        statistics = {
+            'size_count': config.memcache_obj.current_size, 
+            'request_count': config.memcache_obj.request_count,
+            'miss_rate': config.memcache_obj.miss / config.memcache_obj.request_count,
+            'key_count': config.memcache_obj.currsize,
+            'hit_rate': config.memcache_obj.hit / config.memcache_obj.request_count
+        }
+    else:
+        statistics = {
+            'size_count': config.memcache_obj.current_size, 
+            'request_count': config.memcache_obj.request_count,
+            'miss_rate': 0,
+            'key_count': config.memcache_obj.currsize,
+            'hit_rate': 0
+        }
     response = webapp.response_class(
             response=json.dumps(statistics),
             status=200,
